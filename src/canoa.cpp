@@ -8,7 +8,7 @@ Canoa::Canoa(shi x,shi y){
   this->setDirecao('N');
   this->setNumeroDeCasasOcupadas(1);
   this->setVidaDeCadaParte(1);
-  this->posicionarEmbarcacao(this->getPonto().first,this->getPonto().second,'N');
+  this->posicionarEmbarcacao(this->getPonto().first,this->getPonto().second,this->getDirecao());
 }
 char Canoa::usarHabilidadeEspecial(){
   printf("Voce acertou em cheio a canoinha...\n");

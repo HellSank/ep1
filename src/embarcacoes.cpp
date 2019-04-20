@@ -81,13 +81,16 @@ char Embarcacoes::checarSeFuiAtacado(shi x,shi y){
       letra = this->usarHabilidadeEspecial();
     }
   }
+  if(letra == 'A'){
+    printf("Aguaaa!!!!\n");
+  }
   return letra;
 }
 
 void Embarcacoes::sofrerAtaque(){
   for (shi i = 0; i < this->getNumeroDeCasasOcupadas(); i++) {
     if(get<0>(this->posicao_VidaDeCadaParte[i])==getPonto().first and get<1>(this->posicao_VidaDeCadaParte[i])==getPonto().second){
-      get<2>(this->posicao_VidaDeCadaParte[i]) -=1; 
+      get<2>(this->posicao_VidaDeCadaParte[i]) -=1;
       break;
     }
   }

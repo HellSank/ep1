@@ -8,7 +8,6 @@ class Canoa: public Embarcacoes{
     Canoa(shi x,shi y);
     ~Canoa();
     char usarHabilidadeEspecial();
-    shi vidaTotal();
 };
 
 #endif
