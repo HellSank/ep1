@@ -12,5 +12,6 @@ Canoa::Canoa(shi x,shi y){
 }
 char Canoa::usarHabilidadeEspecial(){
   printf("Voce acertou em cheio a canoinha...\n");
+  this->sofrerAtaque();
   return 'D';
 }

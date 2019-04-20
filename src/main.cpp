@@ -4,6 +4,7 @@
 #include "embarcacoes.hpp"
 #include "canoa.hpp"
 #include "portaAvioes.hpp"
+#include "submarino.hpp"
 using namespace std;
 
 int main(){
@@ -12,5 +13,8 @@ int main(){
     PortaAvioes porta1(5,5,'N');
     porta1.checarSeFuiAtacado(5,6);
     porta1.checarSeFuiAtacado(0,0);
+    Submarino sub1(3,3,'S');
+    sub1.checarSeFuiAtacado(3,2);
+    sub1.checarSeFuiAtacado(3,2);
     return 0;
 }

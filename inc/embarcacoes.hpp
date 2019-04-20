@@ -11,11 +11,11 @@ class Embarcacoes{
 
   private:
     shi numeroDeCasasOcupadas;
-    vector<tuple<shi,shi,shi>> posicao_VidaDeCadaParte;
     pair<shi,shi>ponto;
     char direcao;
     shi vidaDeCadaParte;
   protected:
+    vector<tuple<shi,shi,shi>> posicao_VidaDeCadaParte;
     virtual char usarHabilidadeEspecial()=0;
     void sofrerAtaque();
 
