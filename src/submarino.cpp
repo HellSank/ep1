@@ -13,13 +13,14 @@ char Submarino::usarHabilidadeEspecial(){
   char letra = 'S';
   for(auto i :this->posicao_VidaDeCadaParte){
     if(get<0>(i)==this->getPonto().first and get<1>(i)==this->getPonto().second){
-      if((get<2>(i)!=1)){
-        printf("Submarino atingido!!!\nMas devido a Habilidade Especial desta embarcacao ele ainda possui uma vida\n");
+      if( get<2>(i) > 1){
         this->sofrerAtaque();
+        printf("life=%d\n",get<2>(i));
+        printf("Submarino atingido!!!\nMas devido a Habilidade Especial desta embarcacao ele ainda possui uma vida\n");
         return letra;
       }else{
-        printf("Submarino atingido e destruido!!!\n");
         this->sofrerAtaque();
+        printf("Submarino atingido e destruido!!!\n");
         letra = 'D';
         return letra;
       }

@@ -77,21 +77,20 @@ char Embarcacoes::checarSeFuiAtacado(shi x,shi y){
   this->setPonto(x,y);
   char letra='A';
   for (auto i :this->posicao_VidaDeCadaParte) {
-    if(get<0>(i)==this->getPonto().first and get<1>(i)==getPonto().second){
+    if(get<0>(i)==this->getPonto().first and get<1>(i)==this->getPonto().second){
       letra = this->usarHabilidadeEspecial();
     }
-  }
-  if(letra == 'A'){
-    printf("Aguaaa!!!!\n");
   }
   return letra;
 }
 
 void Embarcacoes::sofrerAtaque(){
-  for (shi i = 0; i < this->getNumeroDeCasasOcupadas(); i++) {
-    if(get<0>(this->posicao_VidaDeCadaParte[i])==getPonto().first and get<1>(this->posicao_VidaDeCadaParte[i])==getPonto().second){
-      get<2>(this->posicao_VidaDeCadaParte[i]) -=1;
-      break;
+  for (int i=0;i<this->getNumeroDeCasasOcupadas();i++) {
+    if(get<0>(this->posicao_VidaDeCadaParte[i])==this->getPonto().first and get<1>(this->posicao_VidaDeCadaParte[i])==this->getPonto().second){
+      get<2>(this->posicao_VidaDeCadaParte[i])--;
+      //printf("Vida:%d\n",get<2>(this->posicao_VidaDeCadaParte[i]));
+      return;
     }
   }
+  //printf("Vida nao reduzida\n")
 }
