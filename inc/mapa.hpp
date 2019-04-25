@@ -10,7 +10,7 @@ class Mapa{
     vector<Canoa>canoas;
     vector<Submarino>submarinos;
     vector<PortaAvioes>portaAvioes;
-    char estadosDeUmPonto;// A -> Agua ; S -> Submarino; P -> PortaAvioes; C-> Canoa; ?->Nao sabe; D -> Destroco
+    // A -> Agua ; S -> Submarino; P -> PortaAvioes; C-> Canoa; ?->Nao sabe; D -> Destroco
     char body[20][20];
   public:
     Mapa();
@@ -31,6 +31,7 @@ class Mapa{
     //_________
     void desenharMapa();
     void atacarPontoNoMapa(shi x, shi y);
+    shi vidaTotalDoMapa();
 };
 
 

@@ -26,7 +26,7 @@ void Mapa::atacarPontoNoMapa(shi x,shi y){
 
   char letra = 'A',letraTemp='A';
 
-  for(shi i = 0;i<this->canoas.size();i++){
+  for(shi i = 0;i<( unsigned short int )this->canoas.size();i++){
     letraTemp = this->canoas[i].checarSeFuiAtacado(x,y);
     if(letra!= letraTemp){
       letra = letraTemp;
@@ -35,7 +35,7 @@ void Mapa::atacarPontoNoMapa(shi x,shi y){
     }
   }
 
-  for(shi i = 0;i<this->submarinos.size();i++){
+  for(shi i = 0;i<( unsigned short int )this->submarinos.size();i++){
     letraTemp = this->submarinos[i].checarSeFuiAtacado(x,y);
     if(letra!= letraTemp){
       letra = letraTemp;
@@ -44,7 +44,7 @@ void Mapa::atacarPontoNoMapa(shi x,shi y){
     }
   }
 
-  for(shi i = 0;i<this->portaAvioes.size();i++){
+  for(shi i = 0;i<( unsigned short int )this->portaAvioes.size();i++){
     letraTemp = this->portaAvioes[i].checarSeFuiAtacado(x,y);
     if(letra!= letraTemp){
       letra = letraTemp;
@@ -65,8 +65,25 @@ void Mapa::desenharMapa(){
   for(int i = 0;i<20;i++){
     printf("\n");
     for(int j = 0; j<20;j++){
-      printf("| %c ",this->body[i][j]);
+      if(j!=19)
+        printf("| %c ",this->body[i][j]);
+      else
+        printf("| %c |",this->body[i][j]);
     }
   }
   printf("\n");
+}
+
+shi Mapa::vidaTotalDoMapa(){
+  shi vidaTotalDoMapa=0;
+  for(auto i : this->canoas){
+    vidaTotalDoMapa += i.vidaTotal();
+  }
+  for(auto i : this->submarinos){
+    vidaTotalDoMapa += i.vidaTotal();
+  }
+  for(auto i : this->portaAvioes){
+    vidaTotalDoMapa += i.vidaTotal();
+  }
+  return vidaTotalDoMapa;
 }
