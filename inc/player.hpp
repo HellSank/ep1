@@ -8,22 +8,22 @@ class Player{
     string nome;
     shi pontosDeVida;
     shi pontuacao;
-    Mapa mapaParaAtacar;
+    Mapa *mapaParaAtacar;
     void iniciarPontosDeVida();
   public:
-    void ganharJogo();
-    void perderJogo();
+    shi ganharJogo();
+    void perderJogo(shi pontosAdversario);
     void verSignificadoDasNotacoes();
-    void perderVida();
+    bool perderVida();
     //________ Getters and Setters || Construtor
-    Player(string nome,Mapa mapaParaAtacar);
+    Player(string nome,Mapa *mapaParaAtacar);
     ~Player();
 
     string getNome();
     void setNome(string nome);
 
-    Mapa getMapa();
-    void setMapa(Mapa mapaParaAtacar);
+    Mapa *getMapa();
+    void setMapa(Mapa *mapaParaAtacar);
 
     shi getPontosDeVida();
     void setPontosDeVida(shi pontosDeVida);

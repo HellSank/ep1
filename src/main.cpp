@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include<unistd.h>
 
 #include "canoa.hpp"
 #include "portaAvioes.hpp"
@@ -27,7 +28,7 @@ int main(){
     mapa1.setPortaAvioes(PortaAvioes(7,2,'S'));
     mapa1.setPortaAvioes(PortaAvioes(5,9,'L'));
 
-    Player player1("Diana",mapa1);
+    Player player1("Diana",&mapa1);//Mapa 1 e do player Dante
 
     mapa2.setCanoas(Canoa(7,0));
     mapa2.setCanoas(Canoa(12,1));
@@ -42,9 +43,79 @@ int main(){
     mapa2.setPortaAvioes(PortaAvioes(0,1,'S'));
     mapa2.setPortaAvioes(PortaAvioes(3,6,'L'));
 
-    Player player2("Dante",mapa2);
+    Player player2("Dante",&mapa2);//Mapa 2 e da player Diana
+    printf("Bem vindos a batalha naval Players : %s || %s\n",player1.getNome().c_str(),player2.getNome().c_str());
+    sleep(4.5);
+    printf("\033[2J\033[1;1H");
+    bool player2PerdeuGame = false,player1PerdeuGame = false;
     while (1) {
-      /* code */
+      short int x,y;
+      char querNotacoes='N';
+      char saberSeVidaOponenteSeraReduzida = ' ';
+      //______________________________ PLAYER 1 GAME
+      printf("Player : %s , aqui esta o seu mapa para atacar:\n",player1.getNome().c_str());
+      player1.getMapa()->desenharMapa();
+
+      printf("Escolha um ponto de ataque(digite apenas os valores de x e y separados por espaco):\n");
+      cin >>x>>y;
+
+      printf("\033[2J\033[1;1H");
+
+      saberSeVidaOponenteSeraReduzida = player1.getMapa()->atacarPontoNoMapa(x,y);
+
+      if(saberSeVidaOponenteSeraReduzida=='D' || saberSeVidaOponenteSeraReduzida=='S'){
+        player2PerdeuGame = player2.perderVida();
+        if(player2PerdeuGame)
+          break;
+      }
+
+      player1.getMapa()->desenharMapa();
+
+      printf("Player: %s\nVoce deseja saber sobre as notacoes do jogo?[S/N]",player1.getNome().c_str());
+      cin >> querNotacoes;
+      if(querNotacoes=='S'){
+        player1.verSignificadoDasNotacoes();
+        printf("Pressione qualquer tecla [a-z] para passar a vez\n");
+        scanf("%*s");
+      }else{
+        printf("Ok...\n");
+      }
+      //______________________________ PLAYER 2 GAME
+      printf("Player : %s , aqui esta o seu mapa para atacar:\n",player2.getNome().c_str());
+      player2.getMapa()->desenharMapa();
+
+      printf("Escolha um ponto de ataque(digite apenas os valores de x e y separados por espaco):\n");
+      cin >>x>>y;
+
+      printf("\033[2J\033[1;1H");
+
+      saberSeVidaOponenteSeraReduzida = player2.getMapa()->atacarPontoNoMapa(x,y);
+
+      if(saberSeVidaOponenteSeraReduzida=='D' || saberSeVidaOponenteSeraReduzida=='S'){
+        player1PerdeuGame = player1.perderVida();
+        if(player1PerdeuGame)
+          break;
+      }
+
+      player2.getMapa()->desenharMapa();
+
+      printf("Player: %s\nVoce deseja saber sobre as notacoes do jogo?[S/N]",player2.getNome().c_str());
+      cin >> querNotacoes;
+      if(querNotacoes=='S'){
+        player2.verSignificadoDasNotacoes();
+        printf("Pressione qualquer tecla [a-z] para passar a vez\n");
+        scanf("%*s");
+      }else{
+        printf("Ok...\n");
+      }
+
+    }
+    if(player2PerdeuGame){
+      shi pts = player1.ganharJogo();
+      player2.perderJogo(pts);
+    }else{
+      shi pts = player2.ganharJogo();
+      player1.perderJogo(pts);
     }
     return 0;
 }

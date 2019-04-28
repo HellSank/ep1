@@ -17,20 +17,14 @@ class Mapa{
     ~Mapa();
     //________
 
-    /*char getEstadosDeUmPonto();
-    void setEstadosDeUmPonto(char estadosDeUmPonto);
-*/
-    //vector<Canoa>getCanoas();
     void setCanoas(Canoa canoas);
 
-    //vector<Submarino>getSubmarinos();
     void setSubmarinos(Submarino submarinos);
 
-    //vector<PortaAvioes>getPortaAvioes();
     void setPortaAvioes(PortaAvioes portaAvioes);
     //_________
     void desenharMapa();
-    void atacarPontoNoMapa(shi x, shi y);
+    char atacarPontoNoMapa(shi x, shi y);
     shi vidaTotalDoMapa();
 };
 

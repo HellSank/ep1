@@ -22,7 +22,7 @@ void Mapa::setPortaAvioes(PortaAvioes portaAvioes){
   this->portaAvioes.push_back(portaAvioes);
 }
 
-void Mapa::atacarPontoNoMapa(shi x,shi y){
+char Mapa::atacarPontoNoMapa(shi x,shi y){
 
   char letra = 'A',letraTemp='A';
 
@@ -31,7 +31,7 @@ void Mapa::atacarPontoNoMapa(shi x,shi y){
     if(letra!= letraTemp){
       letra = letraTemp;
       this->body[x][y] = letra;
-      return;
+      return letra;
     }
   }
 
@@ -40,7 +40,7 @@ void Mapa::atacarPontoNoMapa(shi x,shi y){
     if(letra!= letraTemp){
       letra = letraTemp;
       this->body[x][y] = letra;
-      return;
+      return letra;
     }
   }
 
@@ -49,7 +49,7 @@ void Mapa::atacarPontoNoMapa(shi x,shi y){
     if(letra!= letraTemp){
       letra = letraTemp;
       this->body[x][y] = letra;
-      return;
+      return letra;
     }
   }
 
@@ -57,7 +57,7 @@ void Mapa::atacarPontoNoMapa(shi x,shi y){
   if(letra == 'A'){
     printf("Aguaa!!!\n");
   }
-
+  return letra;
 }
 
 void Mapa::desenharMapa(){
