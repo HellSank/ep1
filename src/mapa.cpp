@@ -66,9 +66,9 @@ void Mapa::desenharMapa(){
     printf("\n");
     for(int j = 0; j<20;j++){
       if(j!=19)
-        printf("| %c ",this->body[i][j]);
+        printf("| %c ",this->body[j][i]);
       else
-        printf("| %c |",this->body[i][j]);
+        printf("| %c |",this->body[j][i]);
     }
   }
   printf("\n");
