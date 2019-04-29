@@ -13,39 +13,28 @@
 using namespace std;
 
 int main(){
-    Mapa mapa1,mapa2;
-
-    mapa1.setCanoas(Canoa(11,1));
-    mapa1.setCanoas(Canoa(4,6));
-    /*mapa1.setCanoas(Canoa(8,10));
-    mapa1.setCanoas(Canoa(10,10));
-    mapa1.setCanoas(Canoa(5,12));
-    mapa1.setCanoas(Canoa(12,12));
-    mapa1.setSubmarinos(Submarino(5,2,'L'));
-    mapa1.setSubmarinos(Submarino(1,4,'L'));
-    mapa1.setSubmarinos(Submarino(10,7,'L'));
-    mapa1.setSubmarinos(Submarino(6,12,'L'));
-    mapa1.setPortaAvioes(PortaAvioes(7,2,'S'));
-    mapa1.setPortaAvioes(PortaAvioes(5,9,'L'));*/
-
+    //Mapa mapa1,mapa2;
+    short int x,y,contador=0;
+    string line;
+    ifstream arquivo("doc/map_1.txt");
+    if(arquivo.fail()){
+      cout<<"Erro"<<endl;
+      exit(1);
+    }
+    cout << "Nao erro"<<endl;
+    // ---> Inicio da leitura do arquivo
+    while (!arquivo.eof()) {
+      contador++;
+      getline(arquivo,line);
+      if(contador>=8 and contador<=13){
+        printf("%s\n",line.c_str());
+      }
+    }
+/*
     Player player1("Diana",&mapa1);//Mapa 1 e do player Dante
-
-    mapa2.setCanoas(Canoa(7,0));
-    mapa2.setCanoas(Canoa(12,1));
-    /*mapa2.setCanoas(Canoa(10,6));
-    mapa2.setCanoas(Canoa(12,7));
-    mapa2.setCanoas(Canoa(2,11));
-    mapa2.setCanoas(Canoa(11,12));
-    mapa2.setSubmarinos(Submarino(1,6,'L'));
-    mapa2.setSubmarinos(Submarino(3,7,'L'));
-    mapa2.setSubmarinos(Submarino(2,10,'L'));
-    mapa2.setSubmarinos(Submarino(8,9,'L'));
-    mapa2.setPortaAvioes(PortaAvioes(0,1,'S'));
-    mapa2.setPortaAvioes(PortaAvioes(3,6,'L'));*/
-
     Player player2("Dante",&mapa2);//Mapa 2 e da player Diana
+    // ---> Final da leitura do arquivo
     printf("Bem vindos a batalha naval Players\n");
-    //printf("VidaMapa1 :%d VidaMapa2 :%d\n",mapa1.vidaTotalDoMapa(),mapa2.vidaTotalDoMapa() );
     sleep(4.5);
     printf("\033[2J\033[1;1H");
     printf("%s(life):%d \n%s(life):%d\n",player1.getNome().c_str(),player1.getPontosDeVida(),player2.getNome().c_str(),player2.getPontosDeVida() );
@@ -116,5 +105,5 @@ int main(){
       shi pts = player2.ganharJogo();
       player1.perderJogo(pts);
     }
-    return 0;
+*/    return 0;
 }

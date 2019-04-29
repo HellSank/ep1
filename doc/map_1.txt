@@ -5,33 +5,33 @@
 # pois um submarino deve ter 2 casas de tamanho e ele irá para a direita)
 
 # player_1
-12 0 canoa nada
-10 8 canoa nada
+11 1 canoa nada
+4 6 canoa nada
+8 10 canoa nada
 10 10 canoa nada
-1 11 canoa nada
-12 7 canoa nada
-6 5 canoa nada
+5 12 canoa nada
+12 12 canoa nada
 
-2 5 submarino direita
-4 1 submarino direita
-12 7 submarino esquerda
-6 5 submarino direita
+5 2 submarino direita
+1 4 submarino direita
+10 7 submarino direita
+6 12 submarino direita
 
-5 7 porta-avioes cima
-9 5 porta-avioes esquerda
+7 2 porta-avioes baixo
+5 9 porta-avioes direita
 
 # player_2
-0 7 canoa nada
-1 12 canoa nada
-6 10 canoa nada
-7 12 canoa nada
-11 2 canoa nada
-12 11 canoa nada
+7 0 canoa nada
+12 1 canoa nada
+10 6 canoa nada
+12 7 canoa nada
+2 11 canoa nada
+11 12 canoa nada
 
-6 1 submarino direita
-7 3 submarino direita
-3 10 submarino esquerda
-9 8 submarino direita
+1 6 submarino direita
+3 7 submarino direita
+2 10 submarino direita
+8 9 submarino direita
 
-4 0 porta-avioes cima
-6 6 porta-avioes esquerda
+0 1 porta-avioes baixo
+3 6 porta-avioes direita
