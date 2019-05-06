@@ -1,6 +1,9 @@
 #include"player.hpp"
 #include"mapa.hpp"
 #include<string>
+Player::Player(){
+  this->setPontosDeVida(0);
+}
 void Player::iniciarPontosDeVida(){
   this->pontosDeVida = this->mapaParaAtacar->vidaTotalDoMapa();//Como o mapa o qual o player atacara e o seu proprio mapa possuem o mesmo numero e tipo de embarcacoes , tal atribuicao e valida
 }
@@ -35,7 +38,6 @@ bool Player::perderVida(){
 Player::Player(string nome,Mapa *mapaParaAtacar){
   this->setNome(nome);
   this->setMapa(mapaParaAtacar);
-  this->iniciarPontosDeVida();
 }
 Player::~Player(){
 }
@@ -52,6 +54,7 @@ Mapa* Player::getMapa(){
 }
 void Player::setMapa(Mapa *mapaParaAtacar){
   this->mapaParaAtacar = mapaParaAtacar;
+  this->iniciarPontosDeVida();
 }
 
 shi Player::getPontosDeVida(){
