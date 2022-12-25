@@ -10,6 +10,9 @@ run: bin/prog
 	bin/prog
 
 .PHONY: clean
-clean:
-	rm -rf obj/*
-	rm bin/prog
+OBJFILES := $(wildcard obj/*.o)
+
+clean: $(OBJFILES:obj/%.o=remove_%.o)
+	rm -f bin/prog
+remove_%.o:
+	rm -f obj/$@
