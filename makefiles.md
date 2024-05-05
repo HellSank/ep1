@@ -9,6 +9,7 @@
 - O que significa '$@' : É o nome do target, arquivo gerado.
 - O que significa '$<' : É o nome do primeiro pré requisito.
 - O que significa '$^' : É o nome de todos os pré requisitos.
+- Acessar o segundo elemento de '$^' : $(word 2,$^)
 
 ## all: $(SRCFILES:src/%.cpp=obj/%.o)
 
